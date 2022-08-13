@@ -37,7 +37,16 @@ err := write.New(w, http.StatusTeapot).Empty()
 You may send JSON responses using go-write, the body will be marshalled JSON, it will set the corresponding `Content-Type` and `Content-Length` header, and send your HTTP status code:
 
 ```go
-err := write.New(w, http.StatusTeapot).Empty()
+
+type myBody struct {
+    Key string `json:"key"`
+    Value string `json:"value"`
+}
+
+err := write.New(w, http.StatusTeapot).JSON(&myBody{
+    Key:   "foo",
+    Value: "bar",
+})
 ```
 
 #### Text
