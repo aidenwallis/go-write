@@ -1,0 +1,24 @@
+name: Validate codegen
+
+on: [push, pull_request]
+
+jobs:
+  validate:
+    # Validate that codegen is up to date by running go generate ourselves and comparing git diffs
+    name: Validate codegen
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.18
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Generate
+        run: go generate ./...
+
+      - name: Diff generated code
+        # Nothing should've changed...
+        run: git diff --exit-code -- . ':(exclude)go.sum' ':(exclude)go.mod'
