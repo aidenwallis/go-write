@@ -1,6 +1,6 @@
 # go-write
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/aidenwallis/go-write.svg)](https://pkg.go.dev/github.com/aidenwallis/go-write)
+[![codecov](https://codecov.io/gh/aidenwallis/go-write/branch/main/graph/badge.svg?token=BQOADNY183)](https://codecov.io/gh/aidenwallis/go-write) [![Go Reference](https://pkg.go.dev/badge/github.com/aidenwallis/go-write.svg)](https://pkg.go.dev/github.com/aidenwallis/go-write)
 
 A simple, clean HTTP response builder for [net/http](https://pkg.go.dev/net/http). This package is deliberately very light, and simple. There are no external dependencies, just a really clean way to write handlers.
 
